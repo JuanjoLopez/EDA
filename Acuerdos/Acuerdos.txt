@@ -1,0 +1,3 @@
+Nos reuniremos cada fin de semana en la casa de Luis
+Cada maquina tendra la misma configuracion en todo caso
+en maquinas virtuales.
