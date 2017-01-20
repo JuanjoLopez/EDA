@@ -1,0 +1,5 @@
+http://es.tldp.org/Postgresql-es/web/navegable/todopostgresql/overview.html
+https://www.youtube.com/watch?v=-OZEPExwZEw
+http://www.neilconway.org/talks/hacking/
+https://doxygen.postgresql.org/files.html
+https://wiki.postgresql.org/images/4/43/Postgresql_como_funciona_una_dbms_por_dentro.pdf
