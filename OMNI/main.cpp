@@ -1,8 +1,10 @@
 #include <vector>
 using namespace std;
 #define K 3                     // K >= 1
+#define I 0
 
 typedef int distance_type;
+typedef unsigned int uint;
 
 
 template <class m_object_type>
@@ -38,28 +40,28 @@ private:
 
     void create_matrix(){
        get_focuses();
-       for( uint i = 0; i < K; ++i )
+       for( uint i = I; i < K; ++i )
        {
            matrix[i] = new distance_type[space.size()];
-           for( uint j = 0; j < space.size(); ++j )
+           for( uint j = I; j < space.size(); ++j )
                matrix[i][j] = distance( focuses[i], space[j] );
        }
     }
 
     void delete_matrix(){
-        for( uint i = 0; i < K; ++i )
+        for( uint i = I; i < K; ++i )
             delete[] matrix[i];
     }
 
 	void get_focuses(){
-		focuses[0] = space[0]; 											// Usa como temporal
-		uint total_focuses = 0;
-		for( uint i = 0; i < K; ++i ){
-            size_t focus_pos = 0;
-            distance_type max_distance = 0;
-            for( size_t it = 0; it < space.size(); ++it ){
+		focuses[I] = space[I]; 											// Usa como temporal
+		uint total_focuses = I;
+		for( uint i = I; i < K; ++i ){
+            size_t focus_pos = I;
+            distance_type max_distance = I;
+            for( size_t it = I; it < space.size(); ++it ){
                 distance_type current_distance;
-                for( uint j = 0; j < total_focuses || j == 0; ++j )   				// Recorre focos existentes
+                for( uint j = I; j < total_focuses || j == I; ++j )   				// Recorre focos existentes
                     current_distance += distance( focuses[j], space[it] );
                 if( current_distance > max_distance ){
                     focus_pos = it;
@@ -74,22 +76,22 @@ private:
 
 	void get_candidates( const m_object_type& q, distance_type r, vector< pair< m_object_type, distance_type > > &candidates ){
 	    bool eliminated[space.size()];
-	    for( uint i = 0; i < space.size(); ++i )
+	    for( uint i = I; i < space.size(); ++i )
             eliminated[i] = 0;
 
-	    for( uint i = 0; i < K; ++i ){
+	    for( uint i = I; i < K; ++i ){
             distance_type rp = distance( q, focuses[i] );
 
             if( rp <= r )
                 candidates.push_back( pair< m_object_type, distance_type >( focuses[i], rp ) );
 
-            for( size_t j = 0; j < space.size(); ++j )
+            for( size_t j = I; j < space.size(); ++j )
                 if( !eliminated[j] )
                     if( rp - r > matrix[i][j] || matrix[i][j] > rp + r )
                         eliminated[j] = 1;
         }
 
-        for( size_t i = 0; i < space.size(); ++i ){
+        for( size_t i = I; i < space.size(); ++i ){
             if( !eliminated[i] ){
                 distance_type rp = distance( q, space[i] );
                 if( rp <= r )
@@ -122,6 +124,9 @@ private:
 
 #define TOLERANCIA 2
 #define MAXPAL 10
+#define I 0
+
+typedef unsigned int uint;
 
 
 template< class T >
@@ -137,7 +142,6 @@ struct sort_candidates
 int main()
 {
 
-    typedef unsigned int uint;
 
     vector<string> m_espace;
 
@@ -176,11 +180,11 @@ int main()
         if( !ret.empty() ){
             sort( ret.begin(), ret.end(), sort_candidates<string>() );
 
-            if( ret[0].second == 0 ){
+            if( ret[I].second == I ){
                 cout << "La palabra es correcta!" << endl;
             }else{
                 cout << "Quiza quizo decir: " << endl;
-                for( uint i = 0; i < ret.size() && i < MAXPAL; ++i ){
+                for( uint i = I; i < ret.size() && i < MAXPAL; ++i ){
                     cout << "Distancia: " << (uint)ret[i].second << "\tPalabra: " << ret[i].first << endl;
                 }
             }
@@ -189,9 +193,8 @@ int main()
             cout << "No hay sugerencias" << endl;
         }
 
-
-        system("pause");
-        system("cls");
+        /*system("pause"); Windows
+        system("cls");*/
     }
 
     return 0;
