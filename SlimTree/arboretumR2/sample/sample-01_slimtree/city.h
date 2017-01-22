@@ -264,11 +264,9 @@ class TCityDistanceEvaluator : public stMetricEvaluatorStatistics{
          return (delta1 * delta1) + (delta2 * delta2);
       }//end GetDistance2
 
-};//end TCityDistanceEvaluator
+};
 
-//---------------------------------------------------------------------------
-// Output operator
-//---------------------------------------------------------------------------
+
 /**
 * This operator will write a string representation of a city to an outputstream.
 */

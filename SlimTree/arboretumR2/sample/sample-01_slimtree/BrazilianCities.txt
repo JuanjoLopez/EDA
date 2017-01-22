@@ -5500,8 +5500,4 @@ São José da Laje-AL	-9.01	36.06
 Valença do Piauí-PI	-6.41	41.75
 Água Branca-AL	-9.26	37.94
 Santa Rosa de Viterbo-SP	-21.47	47.36
-Gameleira-PE	-8.58	35.39
-Cachoeira do Arari-PA	-1.01	48.96
-Barcelos-AM	-0.97	62.92
-Buriti Alegre-GO	-18.14	49.04
-Anahy-PR	-24.72	53.08
+

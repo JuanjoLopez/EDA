@@ -123,6 +123,6 @@ class TApp{
 
       void PerformRangeQuery();
 
-};//end TApp
+};
 
 #endif //end appH
