@@ -6,10 +6,10 @@
 extern "C" {
 	
 	#include <string>
-	Comni * omnisequential_new()
+	Comni * omnisequential_new(const char **Data)
 	{
 
-		OmniSequential<string> *t = new OmniSequential<string>();
+		OmniSequential<string> *t = new OmniSequential<string>(Data);
 
 		return (Comni *) t;	
 	}
