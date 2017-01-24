@@ -6,7 +6,7 @@ typedef void Comni;
 extern "C" {
 	#endif
 	Comni * omnisequential_new(const vector<string> &space);
-	void omni_query(Comni * t,const string &q,int distance);
+	vector<pair<string,distance_type> > omni_query(Comni * t,const string &q,int distance);
 	void omni_delete(Comni * t);
 	#ifdef __cplusplus
 }
