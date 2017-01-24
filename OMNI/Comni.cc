@@ -1,26 +1,31 @@
-#include "omni.h"
 #include "Comni.h"
+#include "omni.h"
 
-#include "l_distance.h"
+//#include "l_distance.h"
 
 extern "C" {
 	
-	Comni * omnisequential_new(const vector<string> &space)
+	#include <string>
+	Comni * omnisequential_new()
 	{
-		OmniSequential<string> *t = new OmniSequential(space, &l_distance);
+
+		OmniSequential<string> *t = new OmniSequential<string>();
+
 		return (Comni *) t;	
 	}
 
-	vector<pair<string,distance_type> > omni_query(Comni *t,const string &q,distance_type r)
+	void omni_query(Comni * t, const char * q,int distance)
 	{
-		OmniSequential<string> *t2 = (OmniSequential *) t;
-		vector<pair< string,distance_type> > ret = t2->query(q,r);
-		return ret;
+		OmniSequential<string> *t2 = (OmniSequential <string> *) t;
+
+		t2->OmniSequential_query_error_word(q,distance);
+
+
 	}
 
 	void omni_delete(Comni * t)
 	{
-		
+
 	}
 	
 }//extern
